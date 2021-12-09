@@ -2,8 +2,24 @@ import React, { FC } from 'react';
 import useDropdown, { DropdownProps } from '../../src/useDropdown';
 import { Meta } from '@storybook/react';
 
-export const Simple: FC<DropdownProps> = (props) => {
-  const { trigger, list, isListOpen } = useDropdown({ ...props });
+export const Simple: FC<DropdownProps> = ({
+  isOpen = false,
+  openListOnTriggerCLick = true,
+  openListOnTriggerHover = false,
+  closeListOnListLeave = false,
+  closeListOnClickOutside = false,
+  trigger: triggerDefault = {},
+  list: listDefault = {},
+}) => {
+  const { trigger, list, isListOpen } = useDropdown({
+    isOpen,
+    openListOnTriggerCLick,
+    openListOnTriggerHover,
+    closeListOnListLeave,
+    closeListOnClickOutside,
+    trigger: triggerDefault,
+    list: listDefault,
+  });
 
   return (
     <>
