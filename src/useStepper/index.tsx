@@ -21,9 +21,9 @@ export interface StepperReturn {
   /** Go to the first step */
   reset: Function;
   /** Can you go to the previous step? */
-  canGoToPrevStep: Function;
+  canGoToPrevStep: boolean;
   /** Can you go to the next step? */
-  canGoToNextStep: Function;
+  canGoToNextStep: boolean;
 }
 
 /**
@@ -37,17 +37,17 @@ const useStepper = (props: StepperProps = {
   const [isFirstStep, setIsFirstStep] = useState(true)
   const [isLastStep, setIsLastStep] = useState(false)
 
-  const canGoToPrevStep = () => currentStep - 1 >= 1
-  const canGoToNextStep = () => currentStep + 1 <= maxStep
+  const canGoToPrevStep = currentStep - 1 >= 1;
+  const canGoToNextStep = currentStep + 1 <= maxStep;
 
   const goToPrevStep = () => {
-    if (canGoToPrevStep()) {
+    if (canGoToPrevStep) {
       setCurrentStep(step => step - 1)
     }
   }
 
   const goToNextStep = () => {
-    if (canGoToNextStep()) {
+    if (canGoToNextStep) {
       setCurrentStep(step => step + 1)
     }
   }

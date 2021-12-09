@@ -25,7 +25,7 @@ export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
         </div>
         <div>
         <button onClick={() => {
-          if (!canGoToPrevStep()) {
+          if (!canGoToPrevStep) {
             alert("it's not possible to go to the previous step")
           }
           else {
@@ -33,7 +33,7 @@ export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
           }
         }}>prev</button>
         <button onClick={() => {
-          if (!canGoToNextStep()) {
+          if (!canGoToNextStep) {
             alert("it's not possible to go to the next step")
           }
           else {
