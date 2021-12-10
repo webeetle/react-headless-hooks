@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import useStepper, {StepperProps} from "../../src/useStepper";
 import { Meta } from "@storybook/react";
 
-export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
+export const Simple: FC<StepperProps> = ({activeStep = 3, maxStep= 10}) => {
   const {
     currentStep,
     goToStep,
@@ -16,7 +16,7 @@ export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
     triggerGoToPrevStep,
     triggerGoToNextStep,
     triggerResetStep
-  } = useStepper({maxStep})
+  } = useStepper({activeStep, maxStep})
 
   return (
     <>
