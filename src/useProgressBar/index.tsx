@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, RefObject, Ref } from 'react';
+import { useState, useEffect } from 'react';
 
 export interface ProgressBarProps {
   /** override the bar percentuage */
