@@ -3,13 +3,13 @@ import useStepper, {StepperProps} from "../../src/useStepper";
 import './styleCarousel.css'
 import { Meta } from "@storybook/react";
 
-export const Carousel: FC<StepperProps> = ({maxStep = 3, loop = true}) => {
+export const Carousel: FC<StepperProps> = ({maxStep = 3, activeStep = 1, loop = true}) => {
   const {
     currentStep,
     goToStep,
     triggerGoToPrevStep,
     triggerGoToNextStep
-  } = useStepper({maxStep, loop})
+  } = useStepper({maxStep, activeStep, loop})
 
   const btnItems = []
   for (let i=1; i<=maxStep; i++) {
