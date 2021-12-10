@@ -1,4 +1,4 @@
-import {MouseEventHandler, RefObject, useEffect, useRef, useState} from "react";
+import {MouseEventHandler, RefObject, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 export interface StepperProps {
   /** Number of steps */
@@ -62,30 +62,30 @@ const useStepper = (props: StepperProps = {
   const triggerGoToNextStepRef = useRef(null)
   const triggerResetStepRef = useRef(null)
 
-  const canGoToPrevStep = currentStep - 1 >= 1;
-  const canGoToNextStep = currentStep + 1 <= maxStep;
+  const canGoToPrevStep = useMemo(() => currentStep - 1 >= 1, [currentStep]);
+  const canGoToNextStep = useMemo(() => currentStep + 1 <= maxStep, [currentStep]);
 
-  const goToPrevStep = () => {
+  const goToPrevStep = useCallback(() => {
     if (canGoToPrevStep) {
       setCurrentStep(step => step - 1)
     }
-  }
+  }, [currentStep]);
 
-  const goToNextStep = () => {
+  const goToNextStep = useCallback(() => {
     if (canGoToNextStep) {
       setCurrentStep(step => step + 1)
     }
-  }
+  }, [currentStep]);
 
-  const reset = () => {
+  const reset = useCallback(() => {
     setCurrentStep(1)
-  }
+  }, []);
 
-  const goToStep = (step: number) => {
+  const goToStep = useCallback((step: number) => {
     if (step >= 1 && step <= maxStep) {
       setCurrentStep(step)
     }
-  }
+  }, [maxStep]);
 
   useEffect(() => {
     setIsFirstStep(false)
