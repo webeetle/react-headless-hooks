@@ -11,7 +11,7 @@ import {
 import useHasClickedOutside from '../useHasClickedOutside';
 
 export interface SwitchProps {
-  /** switch value, by default false */
+  /** Is switch on? By default false */
   isOn?: boolean;
   /** Turn on if the mouse enter in the trigger */
   turnOnOnTriggerHover?: boolean;

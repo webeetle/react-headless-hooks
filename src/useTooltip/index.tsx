@@ -4,13 +4,13 @@
 import useSwitch, { TriggerProps, TargetProps } from '../useSwitch';
 
 export interface TooltipProps {
-  /** is tooltip visible by default */
+  /** Is tooltip visible by default? */
   isVisible?: boolean;
-  /** show tooltip on click and not hover */
+  /** Show tooltip on click and not hover */
   showOnClick?: boolean;
-  /** Close list on list Mouse Leave */
+  /** Close tooltip on trigger Mouse Leave */
   hiddenTooltipOnTriggerLeave?: boolean;
-  /** Close list on click outside */
+  /** Close tooltip on tooltip click outside */
   closeTooltipOnClickOutside?: boolean;
 }
 
