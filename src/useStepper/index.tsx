@@ -52,13 +52,13 @@ const useStepper = (props: StepperProps = {
   maxStep: 1
 }): StepperReturn => {
   const {
-    activeStep = 1,
     maxStep,
+    activeStep = 1,
     triggerGoToPrevStep: triggerDefaulGoToPrevStep = {},
     triggerGoToNextStep: triggerDefaulGoToNextStep = {},
     triggerResetStep: triggerDefaulResetStep = {}
   } = props
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(activeStep)
   const [isFirstStep, setIsFirstStep] = useState(true)
   const [isLastStep, setIsLastStep] = useState(false)
   const triggerGoToPrevStepRef = useRef(null)
@@ -91,7 +91,6 @@ const useStepper = (props: StepperProps = {
   }, [maxStep]);
 
   useEffect(() => {
-    setCurrentStep(activeStep)
     setIsFirstStep(false)
     setIsLastStep(false)
     if (currentStep === 1) {
