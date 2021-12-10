@@ -12,7 +12,10 @@ export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
     isLastStep,
     reset,
     canGoToPrevStep,
-    canGoToNextStep
+    canGoToNextStep,
+    triggerGoToPrevStep,
+    triggerGoToNextStep,
+    triggerResetStep
   } = useStepper({maxStep})
 
   console.log('is first', isFirstStep)
@@ -24,23 +27,32 @@ export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
           <strong>step: {currentStep}</strong>
         </div>
         <div>
-        <button onClick={() => {
-          if (!canGoToPrevStep) {
-            alert("it's not possible to go to the previous step")
-          }
-          else {
-            goToPrevStep()
-          }
-        }}>prev</button>
-        <button onClick={() => {
-          if (!canGoToNextStep) {
-            alert("it's not possible to go to the next step")
-          }
-          else {
-            goToNextStep()
-          }
-        }}>next</button>
-        <button onClick={() => reset()}>reset</button>
+          <button {...triggerGoToPrevStep}>prev</button>
+          <button {...triggerGoToNextStep}>next</button>
+          <button {...triggerResetStep}>reset</button>
+        </div>
+        <div>
+          <button onClick={() => {
+            if (!canGoToPrevStep) {
+              alert("it's not possible to go to the previous step")
+            }
+            else {
+              goToPrevStep()
+            }
+          }}>prev custom</button>
+          <button onClick={() => {
+            if (!canGoToNextStep) {
+              alert("it's not possible to go to the next step")
+            }
+            else {
+              goToNextStep()
+            }
+          }}>next custom</button>
+          <button onClick={() => {
+            let result = confirm("Are you sure?")
+            if (result === true)
+              reset()
+          }}>reset</button>
         </div>
         <div>
           <button onClick={() => goToStep(5)}>go to step 5</button>
