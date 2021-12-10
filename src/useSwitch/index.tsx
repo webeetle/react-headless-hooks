@@ -7,6 +7,7 @@ import {
   useEffect,
   MouseEventHandler,
   RefObject,
+  useCallback,
 } from 'react';
 import useHasClickedOutside from '../useHasClickedOutside';
 
@@ -69,15 +70,15 @@ const useSwitch = (props: SwitchProps = {}): SwitchReturn => {
   const triggerRef = useRef(null);
   const hasClickedOutsideTarget = useHasClickedOutside(targetRef);
 
-  const toggle = (): void => {
+  const toggle = useCallback(() => {
     setIsOn((old) => !old);
-  };
-  const turnOn = (): void => {
+  }, []);
+  const turnOn = useCallback(() => {
     setIsOn(true);
-  };
-  const turnOff = (): void => {
+  }, []);
+  const turnOff = useCallback(() => {
     setIsOn(false);
-  };
+  }, []);
 
   useEffect(() => {
     if (turnOffOnClickOutside && hasClickedOutsideTarget) {
@@ -86,22 +87,22 @@ const useSwitch = (props: SwitchProps = {}): SwitchReturn => {
   }, [hasClickedOutsideTarget]);
 
   const trigger: TriggerProps = {
-    onClick: () => {
+    onClick: useCallback(() => {
       !disableTriggerClick ? toggle() : null;
-    },
-    onMouseEnter: () => {
+    }, [disableTriggerClick]),
+    onMouseEnter: useCallback(() => {
       turnOnOnTriggerHover ? turnOn() : null;
-    },
-    onMouseLeave: () => {
+    }, [turnOnOnTriggerHover]),
+    onMouseLeave: useCallback(() => {
       turnOffOnTriggerLeave ? turnOff() : null;
-    },
+    }, [turnOffOnTriggerLeave]),
     ref: triggerRef,
   };
 
   const target: TargetProps = {
-    onMouseLeave: () => {
+    onMouseLeave: useCallback(() => {
       turnOffOnTargetLeave ? turnOff() : null;
-    },
+    }, [turnOffOnTargetLeave]),
     ref: targetRef,
   };
   return {
