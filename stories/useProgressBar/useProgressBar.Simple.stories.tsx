@@ -5,14 +5,20 @@ import { Meta } from '@storybook/react';
 export const Simple = ({
   percentuage: percentuageDefault,
 }: ProgressBarProps) => {
-  const { increment, decrement, percentuage, reset, complete, empty } =
-    useProgressBar({
-      percentuage: percentuageDefault,
-      onChange: () => null,
-      onComplete: () => null,
-    });
-
-  React.useEffect(() => {}, []);
+  const {
+    increment,
+    decrement,
+    percentuage,
+    reset,
+    complete,
+    empty,
+    isCompleted,
+    isEmpty,
+  } = useProgressBar({
+    percentuage: percentuageDefault,
+    onChange: () => null,
+    onComplete: () => null,
+  });
 
   return (
     <div

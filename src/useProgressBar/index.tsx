@@ -10,6 +10,8 @@ export interface ProgressBarProps {
 
 export interface ProgressBarReturn {
   percentuage: number;
+  isEmpty: Boolean;
+  isCompleted: Boolean;
   increment: Function;
   decrement: Function;
   reset: Function;
@@ -24,13 +26,28 @@ const useProgressBar = (props: ProgressBarProps = {}) => {
     onComplete = null,
   } = props;
   const [percentuage, setPercentuage] = useState(defaultPercentuage);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
     if (onChange) {
       onChange(percentuage);
     }
+
     if (percentuage === 100 && onComplete) {
       onComplete(percentuage);
+    }
+
+    if (percentuage === 100) {
+      setIsCompleted(true);
+    } else {
+      setIsCompleted(false);
+    }
+
+    if (percentuage === 0) {
+      setIsEmpty(true);
+    } else {
+      setIsEmpty(false);
     }
   }, [percentuage]);
 
@@ -58,6 +75,8 @@ const useProgressBar = (props: ProgressBarProps = {}) => {
     reset,
     complete,
     empty,
+    isCompleted,
+    isEmpty,
   };
 };
 
