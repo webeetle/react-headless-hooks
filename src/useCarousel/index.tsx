@@ -13,7 +13,7 @@ export interface CarouselProps {
   triggerGoToNextSlide?: TriggerProps;
 }
 
-export interface CaroulseReturn {
+export interface CarouselReturn {
   /** Current slide */
   currentSlide: number;
   /** Go to the slide */
@@ -39,7 +39,7 @@ export interface CaroulseReturn {
 const useCarousel = (props: CarouselProps = {
   maxSlide: 1,
   loop: true
-}): CaroulseReturn => {
+}): CarouselReturn => {
   const {
     maxSlide,
     loop,
