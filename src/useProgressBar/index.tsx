@@ -5,6 +5,7 @@ export interface ProgressBarProps {
   percentuage?: number;
   /** Trigger on percentuage change */
   onChange?: Function;
+  onComplete?: Function;
 }
 
 export interface ProgressBarReturn {
@@ -17,12 +18,19 @@ export interface ProgressBarReturn {
 }
 
 const useProgressBar = (props: ProgressBarProps = {}) => {
-  const { percentuage: defaultPercentuage = 0, onChange = null } = props;
+  const {
+    percentuage: defaultPercentuage = 0,
+    onChange = null,
+    onComplete = null,
+  } = props;
   const [percentuage, setPercentuage] = useState(defaultPercentuage);
 
   useEffect(() => {
     if (onChange) {
       onChange(percentuage);
+    }
+    if (percentuage === 100 && onComplete) {
+      onComplete(percentuage);
     }
   }, [percentuage]);
 

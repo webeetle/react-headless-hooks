@@ -1,14 +1,16 @@
 import React, { FC } from 'react';
-import useProgressBar from '../../src/useProgressBar';
+import useProgressBar, { ProgressBarProps } from '../../src/useProgressBar';
 import { Meta } from '@storybook/react';
 
-export const Simple = (props) => {
+export const Simple = ({
+  percentuage: percentuageDefault,
+}: ProgressBarProps) => {
   const { increment, decrement, percentuage, reset, complete, empty } =
     useProgressBar({
-      percentuage: 50,
-      onChange: (v) => console.log(v, 'callback'),
+      percentuage: percentuageDefault,
+      onChange: () => null,
+      onComplete: () => null,
     });
-  console.log(percentuage, 'from Component');
 
   React.useEffect(() => {}, []);
 
