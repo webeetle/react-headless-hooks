@@ -3,6 +3,8 @@ import {MouseEventHandler, RefObject, useCallback, useEffect, useMemo, useRef, u
 export interface StepperProps {
   /** Number of steps */
   maxStep: number;
+  /** start from a specific step */
+  activeStep?: number;
   /** overwrite the trigger logic go to the previous step */
   triggerGoToPrevStep?: TriggerProps;
   /** overwrite the trigger logic go to the next step */
@@ -51,11 +53,12 @@ const useStepper = (props: StepperProps = {
 }): StepperReturn => {
   const {
     maxStep,
+    activeStep = 1,
     triggerGoToPrevStep: triggerDefaulGoToPrevStep = {},
     triggerGoToNextStep: triggerDefaulGoToNextStep = {},
     triggerResetStep: triggerDefaulResetStep = {}
   } = props
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(activeStep)
   const [isFirstStep, setIsFirstStep] = useState(true)
   const [isLastStep, setIsLastStep] = useState(false)
   const triggerGoToPrevStepRef = useRef(null)
