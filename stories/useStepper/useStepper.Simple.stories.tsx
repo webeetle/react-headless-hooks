@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import useStepper, {StepperProps} from "../../src/useStepper";
 import { Meta } from "@storybook/react";
 
-export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
+export const Simple: FC<StepperProps> = ({maxStep= 10, activeStep = 3}) => {
   const {
     currentStep,
     goToStep,
@@ -16,10 +16,8 @@ export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
     triggerGoToPrevStep,
     triggerGoToNextStep,
     triggerResetStep
-  } = useStepper({maxStep})
+  } = useStepper({maxStep, activeStep})
 
-  console.log('is first', isFirstStep)
-  console.log('is last', isLastStep)
   return (
     <>
       <div>
@@ -56,7 +54,7 @@ export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
         </div>
         <div>
           <button onClick={() => goToStep(5)}>go to step 5</button>
-        <button onClick={() => goToStep(maxStep)}>go to last step</button>
+          <button onClick={() => goToStep(maxStep)}>go to last step</button>
         </div>
         {isFirstStep && <div>first step</div>}
         {isLastStep && <div>last step</div>}

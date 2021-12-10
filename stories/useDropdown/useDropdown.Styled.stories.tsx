@@ -4,21 +4,17 @@ import { Meta } from '@storybook/react';
 
 export const Styled: FC<DropdownProps> = ({
   isOpen = false,
-  openListOnTriggerCLick = true,
+  disableTriggerClick = false,
   openListOnTriggerHover = false,
   closeListOnListLeave = false,
   closeListOnClickOutside = false,
-  trigger: triggerDefault = {},
-  list: listDefault = {},
 }) => {
   const { trigger, list, isListOpen } = useDropdown({
     isOpen,
-    openListOnTriggerCLick,
+    disableTriggerClick,
     openListOnTriggerHover,
     closeListOnListLeave,
     closeListOnClickOutside,
-    trigger: triggerDefault,
-    list: listDefault,
   });
 
   return (
