@@ -33,10 +33,21 @@ export const Simple: FC<AccordionProps> = ({}) => {
           accordion.map(({ title, content, trigger, isExpanded }, index) => (
             <div
               style={{ border: '1px solid red', padding: '0.5rem' }}
-              {...trigger(index)}
               key={index}
             >
-              <p>{title}</p>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <p>{title}</p>
+                <button {...trigger(index)}>
+                  {isExpanded ? 'Chiudi' : 'Apri'}
+                </button>
+              </div>
               {isExpanded && (
                 <div style={{ borderTop: '1px solid red', padding: '0.5rem' }}>
                   {content}
