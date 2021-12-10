@@ -5,6 +5,8 @@ export interface StepperProps {
   maxStep: number;
   /** start from a specific step */
   activeStep?: number;
+  /** loop */
+  loop?: boolean;
   /** overwrite the trigger logic go to the previous step */
   triggerGoToPrevStep?: TriggerProps;
   /** overwrite the trigger logic go to the next step */
@@ -54,6 +56,7 @@ const useStepper = (props: StepperProps = {
   const {
     maxStep,
     activeStep = 1,
+    loop = false,
     triggerGoToPrevStep: triggerDefaulGoToPrevStep = {},
     triggerGoToNextStep: triggerDefaulGoToNextStep = {},
     triggerResetStep: triggerDefaulResetStep = {}
@@ -72,11 +75,21 @@ const useStepper = (props: StepperProps = {
     if (canGoToPrevStep) {
       setCurrentStep(step => step - 1)
     }
-  }, [currentStep]);
+    else {
+      if (loop) {
+        setCurrentStep(maxStep)
+      }
+    }
+  }, [currentStep, maxStep]);
 
   const goToNextStep = useCallback(() => {
     if (canGoToNextStep) {
       setCurrentStep(step => step + 1)
+    }
+    else {
+      if (loop) {
+        setCurrentStep(1)
+      }
     }
   }, [currentStep]);
 
