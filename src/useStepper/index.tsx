@@ -1,8 +1,14 @@
-import {useEffect, useState} from "react";
+import {MouseEventHandler, RefObject, useEffect, useRef, useState} from "react";
 
 export interface StepperProps {
   /** Number of steps */
   maxStep: number;
+  /** overwrite the trigger logic go to the previous step */
+  triggerGoToPrevStep?: TriggerProps;
+  /** overwrite the trigger logic go to the next step */
+  triggerGoToNextStep?: TriggerProps;
+  /** overwrite the trigger logic reset step */
+  triggerResetStep?: TriggerProps;
 }
 
 export interface StepperReturn {
@@ -24,6 +30,17 @@ export interface StepperReturn {
   canGoToPrevStep: boolean;
   /** Can you go to the next step? */
   canGoToNextStep: boolean;
+  /** trigger prev step attrs */
+  triggerGoToPrevStep: TriggerProps;
+  /** trigger next step attrs */
+  triggerGoToNextStep: TriggerProps;
+  /** trigger reset step attrs */
+  triggerResetStep: TriggerProps;
+}
+
+export interface TriggerProps {
+  ref?: RefObject<any>;
+  onClick?: MouseEventHandler;
 }
 
 /**
@@ -32,10 +49,18 @@ export interface StepperReturn {
 const useStepper = (props: StepperProps = {
   maxStep: 1
 }): StepperReturn => {
-  const {maxStep} = props
+  const {
+    maxStep,
+    triggerGoToPrevStep: triggerDefaulGoToPrevStep = {},
+    triggerGoToNextStep: triggerDefaulGoToNextStep = {},
+    triggerResetStep: triggerDefaulResetStep = {}
+  } = props
   const [currentStep, setCurrentStep] = useState(1)
   const [isFirstStep, setIsFirstStep] = useState(true)
   const [isLastStep, setIsLastStep] = useState(false)
+  const triggerGoToPrevStepRef = useRef(null)
+  const triggerGoToNextStepRef = useRef(null)
+  const triggerResetStepRef = useRef(null)
 
   const canGoToPrevStep = currentStep - 1 >= 1;
   const canGoToNextStep = currentStep + 1 <= maxStep;
@@ -78,6 +103,30 @@ const useStepper = (props: StepperProps = {
     }
   }, [currentStep])
 
+  const triggerGoToPrevStep: TriggerProps = {
+    onClick: () => {
+      goToPrevStep()
+    },
+    ...triggerDefaulGoToPrevStep,
+    ref: triggerGoToPrevStepRef
+  }
+
+  const triggerGoToNextStep: TriggerProps = {
+    onClick: () => {
+      goToNextStep()
+    },
+    ...triggerDefaulGoToNextStep,
+    ref: triggerGoToNextStepRef
+  }
+
+  const triggerResetStep: TriggerProps = {
+    onClick: () => {
+      reset()
+    },
+    ...triggerDefaulResetStep,
+    ref: triggerResetStepRef
+  }
+
 
   return {
     currentStep,
@@ -88,7 +137,10 @@ const useStepper = (props: StepperProps = {
     isLastStep,
     reset,
     canGoToPrevStep,
-    canGoToNextStep
+    canGoToNextStep,
+    triggerGoToPrevStep,
+    triggerGoToNextStep,
+    triggerResetStep
   }
 }
 
