@@ -18,8 +18,6 @@ export const Simple: FC<StepperProps> = ({maxStep= 10}) => {
     triggerResetStep
   } = useStepper({maxStep})
 
-  console.log('is first', isFirstStep)
-  console.log('is last', isLastStep)
   return (
     <>
       <div>
