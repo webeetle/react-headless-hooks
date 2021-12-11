@@ -8,6 +8,7 @@ Hooks for build and design **powerful** components while retaining **100% contro
 - useAccordion
 - useCarousel
 - useDropdown
+- usePagination
 - useProgressBar
 - useStepper
 - useSwitch

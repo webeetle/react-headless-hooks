@@ -7,6 +7,7 @@ import useProgressBar from './useProgressBar';
 import useHasClickedOutside from './useHasClickedOutside';
 import useAccordion from "./useAccordion";
 import useTab from "./useTab";
+import usePagination from "./usePagination";
 
 export {
   useCarousel,
@@ -17,5 +18,6 @@ export {
   useSwitch,
   useTooltip,
   useAccordion,
-  useTab
+  useTab,
+  usePagination
 };
