@@ -5,8 +5,11 @@ Hooks for build and design **powerful** components while retaining **100% contro
 ### Visit  for docs, guides, API and more!
 
 ### Quick Overview
+- useAccordion
+- useCarousel
 - useDropdown
 - useProgressBar
 - useStepper
 - useSwitch
+- useTab
 - useTooltip
