@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[278],{1727:function(s){s.exports=JSON.parse('{"allTagsPath":"/react-headless-hooks/blog/tags","slug":"/react-headless-hooks/blog/tags/docusaurus","name":"docusaurus","count":4,"permalink":"/react-headless-hooks/blog/tags/docusaurus"}')}}]);
