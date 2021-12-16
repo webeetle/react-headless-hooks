@@ -60,9 +60,7 @@ const useMediaQuery = (props: MediaQueryProps = {}) => {
     return obj;
   };
 
-  const [media, setMedia] = useState<IMediaQuery>(() =>
-    buildMediaQueryForEachObject()
-  );
+  const [media] = useState<IMediaQuery>(() => buildMediaQueryForEachObject());
 
   useEffect(() => {}, [media['xl']]);
 
