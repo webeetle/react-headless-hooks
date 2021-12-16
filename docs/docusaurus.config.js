@@ -10,11 +10,12 @@ const config = {
   tagline:
     'Hooks for build and design powerful components while retaining 100% control over markup and styles',
   url: 'https://webeetle.github.io',
-  baseUrl: '/',
+  baseUrl: '/react-headless-hooks/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  trailingSlash: false,
   favicon: 'img/favicon.ico',
-  organizationName: 'webeetle.github.io', // Usually your GitHub org/user name.
+  organizationName: 'webeetle', // Usually your GitHub org/user name.
   projectName: 'react-headless-hooks', // Usually your repo name.
 
   presets: [
@@ -44,9 +45,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'React Headless Hooks',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'React Headless Hooks Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -54,11 +55,11 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentation',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
+          //{ to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/webeetle/react-headless-hooks',
             label: 'GitHub',
             position: 'right',
           },
