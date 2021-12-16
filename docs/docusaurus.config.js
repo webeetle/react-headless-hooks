@@ -9,12 +9,12 @@ const config = {
   title: 'React Headless Hooks',
   tagline:
     'Hooks for build and design powerful components while retaining 100% control over markup and styles',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://webeetle.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'webeetle', // Usually your GitHub org/user name.
+  organizationName: 'webeetle.github.io', // Usually your GitHub org/user name.
   projectName: 'react-headless-hooks', // Usually your repo name.
 
   presets: [
