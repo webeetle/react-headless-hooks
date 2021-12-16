@@ -8,6 +8,7 @@ import useHasClickedOutside from './useHasClickedOutside';
 import useAccordion from './useAccordion';
 import useTab from './useTab';
 import usePagination from './usePagination';
+import useMediaQuery from './useMediaQuery';
 
 export {
   useCarousel,
@@ -20,4 +21,5 @@ export {
   useAccordion,
   useTab,
   usePagination,
+  useMediaQuery
 };
