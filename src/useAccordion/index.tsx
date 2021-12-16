@@ -1,14 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 
+export interface AccordionData {
+  title: ReactNode;
+  content: ReactNode;
+}
 export interface AccordionProps {
   /** Indexes of Accordion Items */
-  data?: Array<Object>;
+  data?: Array<AccordionData>;
   /** Trigger on Item status change */
   onChange?: Function;
   /** Set Default All Panels State */
-  expandAll?: Boolean;
+  expandAll?: boolean;
   /** Set Specific Default Panels State By Indexes */
-  expandByIndexes?: Array<Number>;
+  expandByIndexes?: Array<number>;
 }
 
 export interface AccordionPropsReturn {
@@ -25,14 +29,14 @@ const useAccordion = (props: AccordionProps = {}) => {
   } = props;
 
   const isExpandedByDefault = (
-    indexesArray: Array<Number>,
-    currentIndex: Number
+    indexesArray: Array<number>,
+    currentIndex: number
   ): Boolean => {
     if (indexesArray.includes(currentIndex)) return true;
     return false;
   };
 
-  const onChangePanelStatusHandler = (indexElement: Number): void => {
+  const onChangePanelStatusHandler = (indexElement: number): void => {
     const arrayCopy = [...accordion];
     const ps = arrayCopy.findIndex((el: any) => el.index === indexElement);
     arrayCopy[ps]['isExpanded'] = !arrayCopy[ps]?.isExpanded;
@@ -46,7 +50,7 @@ const useAccordion = (props: AccordionProps = {}) => {
   const [currentOpenPanels, setCurrentOpenPanels] = useState<Array<any>>([]);
   const [accordion, setAccordion] = useState<Array<any>>(() =>
     defaultData
-      ? defaultData.map((el: Object, index: Number) => ({
+      ? defaultData.map((el: Object, index: number) => ({
           ...el,
           index,
           isExpanded: expandAll
@@ -54,7 +58,7 @@ const useAccordion = (props: AccordionProps = {}) => {
             : isExpandedByDefault(expandByIndexes, index)
             ? true
             : false,
-          trigger: (indexElement: Number) => {
+          trigger: (indexElement: number) => {
             return {
               onClick: () => onChangePanelStatusHandler(indexElement),
             };

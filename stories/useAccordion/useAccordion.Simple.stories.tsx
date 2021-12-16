@@ -3,17 +3,20 @@ import useAccordion, { AccordionProps } from '../../src/useAccordion';
 import { Meta } from '@storybook/react';
 
 const fakeData = [
-  { title: 'Title 1', content: 'content 1' },
+  { title: <>Title 1</>, content: <>content 1</> },
   { title: 'Title 2', content: 'content 2' },
   { title: 'Title 3', content: 'content 3' },
 ];
 
-export const Simple: FC<AccordionProps> = ({}) => {
+export const Simple: FC<AccordionProps> = ({
+  expandAll = true,
+  expandByIndexes = [0, 2],
+}) => {
   const { accordion, currentOpenPanels } = useAccordion({
     data: fakeData,
     onChange: (state) => null,
-    expandAll: true,
-    expandByIndexes: [0, 2],
+    expandAll,
+    expandByIndexes,
   });
 
   return (

@@ -1,5 +1,6 @@
 {
-  "version": "0.1.0",
+  "name": "@webeetle/react-headless-hooks",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -35,8 +36,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-headless-hooks",
-  "author": "Riccardo Tartaglia",
+  "author": "weBeetle",
   "module": "dist/react-headless-hooks.esm.js",
   "size-limit": [
     {
