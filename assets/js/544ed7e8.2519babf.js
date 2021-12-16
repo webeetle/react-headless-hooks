@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[116],{1532:function(s){s.exports=JSON.parse('{"allTagsPath":"/react-headless-hooks/blog/tags","slug":"/react-headless-hooks/blog/tags/facebook","name":"facebook","count":1,"permalink":"/react-headless-hooks/blog/tags/facebook"}')}}]);
