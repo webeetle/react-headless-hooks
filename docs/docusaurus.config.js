@@ -14,7 +14,7 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   trailingSlash: false,
-  favicon: 'img/favicon.ico',
+  favicon: '🪝',
   organizationName: 'webeetle', // Usually your GitHub org/user name.
   projectName: 'react-headless-hooks', // Usually your repo name.
 
@@ -46,10 +46,10 @@ const config = {
     ({
       navbar: {
         title: 'React Headless Hooks',
-        logo: {
+        /*  logo: {
           alt: 'React Headless Hooks Logo',
           src: 'img/logo.svg',
-        },
+        }, */
         items: [
           {
             type: 'doc',
@@ -68,16 +68,16 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          {
+          /* {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Gettin Started',
                 to: '/docs/intro',
               },
             ],
-          },
-          {
+          }, */
+          /* {
             title: 'Community',
             items: [
               {
@@ -93,8 +93,8 @@ const config = {
                 href: 'https://twitter.com/docusaurus',
               },
             ],
-          },
-          {
+          }, */
+          /* {
             title: 'More',
             items: [
               {
@@ -106,9 +106,9 @@ const config = {
                 href: 'https://github.com/facebook/docusaurus',
               },
             ],
-          },
+          }, */
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Powered by <a href="https://webeetle.com">weBeetle</a>.`,
       },
       prism: {
         theme: lightCodeTheme,

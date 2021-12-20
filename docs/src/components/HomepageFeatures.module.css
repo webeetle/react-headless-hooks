@@ -1,8 +1,14 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 10rem 0 2rem 0;
   width: 100%;
+}
+
+@media screen and (max-width: 966px) {
+  .features {
+    padding: 2rem 0 2rem 0;
+  }
 }
 
 .featureSvg {
