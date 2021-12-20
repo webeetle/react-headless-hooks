@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://webeetle.github.io/react-headless-hooks/blog"/>
     <subtitle>React Headless Hooks Blog</subtitle>
-    <icon>https://webeetle.github.io/react-headless-hooks/img/favicon.ico</icon>
+    <icon>https://webeetle.github.io/react-headless-hooks/🪝</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>welcome</id>
