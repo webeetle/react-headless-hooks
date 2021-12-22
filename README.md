@@ -14,3 +14,7 @@ Hooks for build and design **powerful** components while retaining **100% contro
 - useSwitch
 - useTab
 - useTooltip
+
+## Install
+
+`npm i @webeetle/react-headless-hooks`
