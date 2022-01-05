@@ -1,8 +1,8 @@
-import React, {FC} from "react";
-import useRate, {RateProps} from "../../src/useRate";
-import {Meta} from "@storybook/react";
+import React, { FC } from 'react';
+import useRate, { RateProps } from '../../src/useRate';
+import { Meta } from '@storybook/react';
 
-export const Simple: FC<RateProps> = ({numRate = 5}) => {
+export const Simple: FC<RateProps> = ({ numRate = 5 }) => {
   const {
     currentRate,
     onChangeRate,
@@ -10,12 +10,16 @@ export const Simple: FC<RateProps> = ({numRate = 5}) => {
     isLastRate,
     isReset,
     clearRate,
-    triggerClearRate
-  } = useRate({numRate});
+    triggerClearRate,
+  } = useRate({ numRate });
 
   const stars = [];
   for (let i = 1; i <= numRate; i++) {
-    stars.push(<button type="button" key={i} onClick={() => onChangeRate(i)}>{i}</button>)
+    stars.push(
+      <button type="button" key={i} onClick={() => onChangeRate(i)}>
+        {i}
+      </button>
+    );
   }
 
   return (
@@ -32,16 +36,16 @@ export const Simple: FC<RateProps> = ({numRate = 5}) => {
       {isLastRate && <div>last rate</div>}
       {isReset && <div>reset rate</div>}
     </>
-  )
-}
+  );
+};
 
 const meta: Meta = {
   title: 'useRate',
   component: Simple,
-  argTypes: { },
+  argTypes: {},
   parameters: {
     controls: { expanded: true },
-  }
-}
+  },
+};
 
 export default meta;
